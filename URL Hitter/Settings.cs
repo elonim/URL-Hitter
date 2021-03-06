@@ -19,6 +19,8 @@ namespace URL_Hitter
                 urlBox.Text = a.url;
                 timeBox.Text = Convert.ToString(a.time);
                 autoStart.Checked = a.autoStart;
+                outputBox.Checked = a.showOutput;
+                
             }
 
         }
@@ -27,7 +29,7 @@ namespace URL_Hitter
         {
             try
             {
-                var c = new HitClass(urlBox.Text, Convert.ToInt32(timeBox.Text), autoStart.Checked);
+                var c = new HitClass(urlBox.Text, Convert.ToInt32(timeBox.Text), autoStart.Checked, autoStart.Checked);
                 HitClass.SaveConfig(FILEPATH, c);
             }
             catch (Exception)

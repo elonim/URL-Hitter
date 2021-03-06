@@ -18,7 +18,7 @@ namespace URL_Hitter
                 HitClass a = HitClass.ReadConfig<HitClass>(FILEPATH);
                 if (a.autoStart)
                 {
-                    Run(a.url);
+                    Run(a.url, a.time, a.showOutput);
                     System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
                     timer.Tick += new EventHandler(timer_Tick);
                     timer.Interval = 3600000 * a.time; // in miliseconds
@@ -40,7 +40,7 @@ namespace URL_Hitter
             if (File.Exists(FILEPATH))
             {
 
-                Run(a.url);
+                Run(a.url, a.time, a.showOutput);
                 System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
                 timer.Tick += new EventHandler(timer_Tick);
                 timer.Interval = 3600000 * a.time; // in miliseconds
@@ -50,15 +50,12 @@ namespace URL_Hitter
         private void timer_Tick(object sender, EventArgs e)
         {
             HitClass a = HitClass.ReadConfig<HitClass>(FILEPATH);
-            Run(a.url);
+            Run(a.url, a.time, a.showOutput);
         }
 
-        public void Run(string url)
+        public void Run(string url, int time, bool showOutput)
         {
-            output.Text = HitClass.Hit(url);
-         
-            
-            
+            output.Text = HitClass.Hit(url, time, showOutput);
 
         }
     }

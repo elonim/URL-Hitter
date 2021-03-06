@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.Text;
 using System.Xml.Serialization;
 using System.IO;
 
@@ -10,27 +11,56 @@ namespace URL_Hitter
         public string url;
         public int time;
         public bool autoStart;
+        public bool showOutput;
 
         public HitClass() // Constructer Without Parameters used by XmlSerializer
         {
 
         }
 
-        public HitClass(string cUrl, int cTime, bool cAutoStart) // Constructer With Input
+        public HitClass(string cUrl, int cTime, bool cAutoStart, bool cOutput) // Constructer With Input
         {
             url = cUrl;
             time = cTime;
             autoStart = cAutoStart;
+            showOutput = cOutput;
         }
 
-        public static string Hit(string url)
+        public static string Hit(string url, int time, bool showOutput)
         {
             try
             {
                 WebClient client = new WebClient();
-                client.Headers.Add("User-Agent", "C# program");
-                string result = client.DownloadString(url);
-                return result;
+                client.Headers.Add("User-Agent", "C# program URL-Hitter");
+                string webResult = client.DownloadString(url); //Load the URL and save the resust in a string
+
+                
+                string now = "Last Hit: " + Convert.ToString(DateTime.Now); //  the next couple of lines is for building a nice output with stringbuilder and datetime
+                StringBuilder sb = new StringBuilder(now, 500);
+                
+                string newLine = "\n\n";
+
+
+                DateTime currentTime = DateTime.Now;  //current datetime
+                DateTime nextHit = currentTime.AddHours(time); //current datetime + hours till next hit
+
+
+                sb.Append(newLine);
+                if (showOutput==true)//Show output from webside or not
+                {
+                    sb.Append(webResult);
+                }
+                else
+                {
+                    sb.Append("OK\nOutput hidden");
+                }
+                sb.Append(newLine);
+                sb.Append("Next Hit:" + nextHit);
+
+
+                var done = sb.ToString();
+
+                return done;
             }
             catch (Exception)
             {

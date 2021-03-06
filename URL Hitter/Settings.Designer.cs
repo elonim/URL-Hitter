@@ -36,6 +36,8 @@ namespace URL_Hitter
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Save = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.outputBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // autoStart
@@ -43,8 +45,9 @@ namespace URL_Hitter
             this.autoStart.AutoSize = true;
             this.autoStart.Location = new System.Drawing.Point(153, 81);
             this.autoStart.Name = "autoStart";
-            this.autoStart.Size = new System.Drawing.Size(15, 14);
+            this.autoStart.Size = new System.Drawing.Size(68, 17);
             this.autoStart.TabIndex = 11;
+            this.autoStart.Text = "Autostart";
             this.autoStart.UseVisualStyleBackColor = true;
             // 
             // timeBox
@@ -98,11 +101,32 @@ namespace URL_Hitter
             this.Save.UseVisualStyleBackColor = true;
             this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 99);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(118, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Show output from result";
+            // 
+            // outputBox
+            // 
+            this.outputBox.AutoSize = true;
+            this.outputBox.Location = new System.Drawing.Point(153, 102);
+            this.outputBox.Name = "outputBox";
+            this.outputBox.Size = new System.Drawing.Size(58, 17);
+            this.outputBox.TabIndex = 14;
+            this.outputBox.Text = "Output";
+            this.outputBox.UseVisualStyleBackColor = true;
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(466, 203);
+            this.Controls.Add(this.outputBox);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.Save);
             this.Controls.Add(this.autoStart);
             this.Controls.Add(this.timeBox);
@@ -127,5 +151,7 @@ namespace URL_Hitter
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Save;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox outputBox;
     }
 }
