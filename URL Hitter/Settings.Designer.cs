@@ -41,7 +41,7 @@ namespace URL_Hitter
             // autoStart
             // 
             this.autoStart.AutoSize = true;
-            this.autoStart.Location = new System.Drawing.Point(153, 91);
+            this.autoStart.Location = new System.Drawing.Point(153, 81);
             this.autoStart.Name = "autoStart";
             this.autoStart.Size = new System.Drawing.Size(15, 14);
             this.autoStart.TabIndex = 11;
@@ -49,7 +49,7 @@ namespace URL_Hitter
             // 
             // timeBox
             // 
-            this.timeBox.Location = new System.Drawing.Point(101, 43);
+            this.timeBox.Location = new System.Drawing.Point(148, 43);
             this.timeBox.Name = "timeBox";
             this.timeBox.Size = new System.Drawing.Size(100, 20);
             this.timeBox.TabIndex = 10;
@@ -64,7 +64,7 @@ namespace URL_Hitter
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 91);
+            this.label3.Location = new System.Drawing.Point(12, 82);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(135, 13);
             this.label3.TabIndex = 8;
@@ -75,9 +75,9 @@ namespace URL_Hitter
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 50);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 13);
+            this.label2.Size = new System.Drawing.Size(130, 13);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Time between hit";
+            this.label2.Text = "Time between hit in Hours";
             // 
             // label1
             // 
@@ -102,7 +102,7 @@ namespace URL_Hitter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 131);
+            this.ClientSize = new System.Drawing.Size(466, 203);
             this.Controls.Add(this.Save);
             this.Controls.Add(this.autoStart);
             this.Controls.Add(this.timeBox);

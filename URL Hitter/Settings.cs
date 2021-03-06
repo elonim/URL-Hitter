@@ -17,7 +17,7 @@ namespace URL_Hitter
             {
                 HitClass a = HitClass.ReadConfig<HitClass>(FILEPATH);
                 urlBox.Text = a.url;
-                timeBox.Text = a.time;
+                timeBox.Text = Convert.ToString(a.time);
                 autoStart.Checked = a.autoStart;
             }
 
@@ -27,7 +27,7 @@ namespace URL_Hitter
         {
             try
             {
-                var c = new HitClass(urlBox.Text, timeBox.Text, autoStart.Checked);
+                var c = new HitClass(urlBox.Text, Convert.ToInt32(timeBox.Text), autoStart.Checked);
                 HitClass.SaveConfig(FILEPATH, c);
             }
             catch (Exception)

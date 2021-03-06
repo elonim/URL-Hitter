@@ -1,6 +1,9 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
+using System.Timers;
 using System.Windows.Forms;
+
 
 namespace URL_Hitter
 {
@@ -15,7 +18,11 @@ namespace URL_Hitter
                 HitClass a = HitClass.ReadConfig<HitClass>(FILEPATH);
                 if (a.autoStart)
                 {
-                    output.Text = HitClass.Hit(a.url);
+                    Run(a.url);
+                    System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+                    timer.Tick += new EventHandler(timer_Tick);
+                    timer.Interval = 3600000 * a.time; // in miliseconds
+                    timer.Start();
                 }
             }
             else
@@ -29,14 +36,30 @@ namespace URL_Hitter
         public Hitter(string start)
         {
             InitializeComponent();
-           
+            HitClass a = HitClass.ReadConfig<HitClass>(FILEPATH);
             if (File.Exists(FILEPATH))
             {
 
-                HitClass a = HitClass.ReadConfig<HitClass>(FILEPATH);
-                output.Text = HitClass.Hit(a.url);
-
+                Run(a.url);
+                System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+                timer.Tick += new EventHandler(timer_Tick);
+                timer.Interval = 3600000 * a.time; // in miliseconds
+                timer.Start();
             }
+        }
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            HitClass a = HitClass.ReadConfig<HitClass>(FILEPATH);
+            Run(a.url);
+        }
+
+        public void Run(string url)
+        {
+            output.Text = HitClass.Hit(url);
+         
+            
+            
+
         }
     }
 }

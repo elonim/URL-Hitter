@@ -7,31 +7,24 @@ namespace URL_Hitter
 {
     public class HitClass //need to be public for XmlSerializer t5o work
     {
-        static string FILEPATH = "Config.xml";
+        public string url;
+        public int time;
+        public bool autoStart;
+
         public HitClass() // Constructer Without Parameters used by XmlSerializer
         {
 
         }
 
-        public string url;
-        public string time;
-        public bool autoStart;
-
-        public HitClass(string cUrl, string cTime, bool cAutoStart) // Constructer With Input
+        public HitClass(string cUrl, int cTime, bool cAutoStart) // Constructer With Input
         {
             url = cUrl;
             time = cTime;
             autoStart = cAutoStart;
-
         }
-
 
         public static string Hit(string url)
         {
-            if (File.Exists(FILEPATH))
-            {
-                HitClass a = HitClass.ReadConfig<HitClass>(FILEPATH);
-            }
             try
             {
                 WebClient client = new WebClient();
@@ -41,11 +34,9 @@ namespace URL_Hitter
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
-
 
         public static void SaveConfig<T>(string filePath, T objectToWrite)
         {
