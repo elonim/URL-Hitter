@@ -29,63 +29,29 @@ namespace URL_Hitter
         /// </summary>
         private void InitializeComponent()
         {
-            this.autoStart = new System.Windows.Forms.CheckBox();
-            this.timeBox = new System.Windows.Forms.TextBox();
             this.urlBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Save = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.outputBox = new System.Windows.Forms.CheckBox();
+            this.timeBox = new System.Windows.Forms.ComboBox();
+            this.timeType = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // autoStart
-            // 
-            this.autoStart.AutoSize = true;
-            this.autoStart.Location = new System.Drawing.Point(153, 81);
-            this.autoStart.Name = "autoStart";
-            this.autoStart.Size = new System.Drawing.Size(68, 17);
-            this.autoStart.TabIndex = 11;
-            this.autoStart.Text = "Autostart";
-            this.autoStart.UseVisualStyleBackColor = true;
-            // 
-            // timeBox
-            // 
-            this.timeBox.Location = new System.Drawing.Point(148, 43);
-            this.timeBox.Name = "timeBox";
-            this.timeBox.Size = new System.Drawing.Size(100, 20);
-            this.timeBox.TabIndex = 10;
             // 
             // urlBox
             // 
-            this.urlBox.Location = new System.Drawing.Point(101, 9);
+            this.urlBox.Location = new System.Drawing.Point(90, 12);
             this.urlBox.Name = "urlBox";
-            this.urlBox.Size = new System.Drawing.Size(299, 20);
+            this.urlBox.Size = new System.Drawing.Size(272, 20);
             this.urlBox.TabIndex = 9;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 82);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(135, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Auto hit on application start";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Time between hit in Hours";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 6;
@@ -93,7 +59,7 @@ namespace URL_Hitter
             // 
             // Save
             // 
-            this.Save.Location = new System.Drawing.Point(249, 82);
+            this.Save.Location = new System.Drawing.Point(350, 147);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(58, 23);
             this.Save.TabIndex = 12;
@@ -101,57 +67,93 @@ namespace URL_Hitter
             this.Save.UseVisualStyleBackColor = true;
             this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 99);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Show output from result";
-            // 
             // outputBox
             // 
             this.outputBox.AutoSize = true;
-            this.outputBox.Location = new System.Drawing.Point(153, 102);
+            this.outputBox.Location = new System.Drawing.Point(15, 21);
             this.outputBox.Name = "outputBox";
-            this.outputBox.Size = new System.Drawing.Size(58, 17);
+            this.outputBox.Size = new System.Drawing.Size(81, 17);
             this.outputBox.TabIndex = 14;
-            this.outputBox.Text = "Output";
+            this.outputBox.Text = "Show result";
             this.outputBox.UseVisualStyleBackColor = true;
+            // 
+            // timeBox
+            // 
+            this.timeBox.FormattingEnabled = true;
+            this.timeBox.Items.AddRange(new object[] {
+            "1",
+            "6",
+            "12",
+            "18",
+            "24",
+            "36",
+            "48"});
+            this.timeBox.Location = new System.Drawing.Point(75, 19);
+            this.timeBox.Name = "timeBox";
+            this.timeBox.Size = new System.Drawing.Size(121, 21);
+            this.timeBox.TabIndex = 15;
+            // 
+            // timeType
+            // 
+            this.timeType.Items.AddRange(new object[] {
+            "Hours",
+            "Minutes",
+            "Seconds"});
+            this.timeType.Location = new System.Drawing.Point(226, 19);
+            this.timeType.Name = "timeType";
+            this.timeType.Size = new System.Drawing.Size(121, 21);
+            this.timeType.TabIndex = 16;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.timeType);
+            this.groupBox1.Controls.Add(this.timeBox);
+            this.groupBox1.Location = new System.Drawing.Point(15, 57);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(393, 56);
+            this.groupBox1.TabIndex = 17;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Time Between hits";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.outputBox);
+            this.groupBox2.Location = new System.Drawing.Point(15, 119);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(323, 51);
+            this.groupBox2.TabIndex = 18;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Aditional settings";
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(466, 203);
-            this.Controls.Add(this.outputBox);
-            this.Controls.Add(this.label4);
+            this.ClientSize = new System.Drawing.Size(436, 203);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Save);
-            this.Controls.Add(this.autoStart);
-            this.Controls.Add(this.timeBox);
             this.Controls.Add(this.urlBox);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Settings";
             this.Text = "Settings";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.CheckBox autoStart;
-        private System.Windows.Forms.TextBox timeBox;
         private System.Windows.Forms.TextBox urlBox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Save;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox outputBox;
+        private System.Windows.Forms.ComboBox timeBox;
+        private System.Windows.Forms.ComboBox timeType;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

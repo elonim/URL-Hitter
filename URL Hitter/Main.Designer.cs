@@ -29,11 +29,11 @@ namespace URL_Hitter
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelContainer = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hitter = new System.Windows.Forms.ToolStripMenuItem();
-            this.start = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.settings = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -63,7 +63,6 @@ namespace URL_Hitter
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hitter,
-            this.start,
             this.toolStripSeparator1,
             this.settings,
             this.toolStripSeparator2,
@@ -74,41 +73,37 @@ namespace URL_Hitter
             // 
             // hitter
             // 
+            this.hitter.Image = ((System.Drawing.Image)(resources.GetObject("hitter.Image")));
             this.hitter.Name = "hitter";
-            this.hitter.Size = new System.Drawing.Size(116, 22);
+            this.hitter.Size = new System.Drawing.Size(180, 22);
             this.hitter.Text = "Hitter";
-            this.hitter.Click += new System.EventHandler(this.hitter_Click);
-            // 
-            // start
-            // 
-            this.start.Name = "start";
-            this.start.Size = new System.Drawing.Size(116, 22);
-            this.start.Text = "Start";
-            this.start.Click += new System.EventHandler(this.start_Click);
+            this.hitter.Click += new System.EventHandler(this.Hitter_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(113, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // settings
             // 
+            this.settings.Image = ((System.Drawing.Image)(resources.GetObject("settings.Image")));
             this.settings.Name = "settings";
-            this.settings.Size = new System.Drawing.Size(116, 22);
+            this.settings.Size = new System.Drawing.Size(180, 22);
             this.settings.Text = "Settings";
-            this.settings.Click += new System.EventHandler(this.settings_Click);
+            this.settings.Click += new System.EventHandler(this.Settings_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(113, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // exit
             // 
+            this.exit.Image = ((System.Drawing.Image)(resources.GetObject("exit.Image")));
             this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(116, 22);
+            this.exit.Size = new System.Drawing.Size(180, 22);
             this.exit.Text = "Exit";
-            this.exit.Click += new System.EventHandler(this.exit_Click);
+            this.exit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // Main
             // 
@@ -117,9 +112,8 @@ namespace URL_Hitter
             this.ClientSize = new System.Drawing.Size(431, 214);
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Main";
             this.Text = "URL Hitter";
             this.menuStrip1.ResumeLayout(false);
@@ -134,7 +128,6 @@ namespace URL_Hitter
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hitter;
-        private System.Windows.Forms.ToolStripMenuItem start;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem settings;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
