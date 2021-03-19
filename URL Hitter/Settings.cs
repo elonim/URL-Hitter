@@ -63,7 +63,19 @@ namespace URL_Hitter
 
         private void TestURL(string URL)
         {
-            Process.Start(URL);
+            try
+            {
+                Process.Start(URL);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show(text: "Input missing\nURL needs to be filled in to test",
+                caption: "No URL",
+                buttons: MessageBoxButtons.OK,
+                icon: MessageBoxIcon.Asterisk);
+            }
+            
         }
     }
 }
