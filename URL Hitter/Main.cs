@@ -9,14 +9,14 @@ namespace URL_Hitter
         {
             InitializeComponent();
             panelContainer.Controls.Clear();
-            Hitter frm = new Hitter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            var frm = new Hitter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             this.panelContainer.Controls.Add(frm);
             frm.Show();
         }
         private void Hitter_Click(object sender, EventArgs e)
         {
             panelContainer.Controls.Clear();
-            Hitter frm = new Hitter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            var frm = new Hitter() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             this.panelContainer.Controls.Add(frm);
             frm.Show();
         }
@@ -24,16 +24,13 @@ namespace URL_Hitter
         private void Settings_Click(object sender, EventArgs e)
         {
             panelContainer.Controls.Clear();
-            Settings frm = new Settings() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            var frm = new Settings() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             this.panelContainer.Controls.Add(frm);
             frm.Show();
         }
 
 
 
-        private void Exit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        private void Exit_Click(object sender, EventArgs e) => Application.Exit();
     }
 }
