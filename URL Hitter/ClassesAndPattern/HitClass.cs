@@ -4,51 +4,48 @@ using System.Net;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace URL_Hitter
+namespace URL_Hitter.Hitclass
 {
 
     public class HitClass //need to be public for XmlSerializer t5o work
     {
         public string url;
         public int time;
-        public bool showOutput;
         public string timeType;
-        public string FILE = "Config.xml";//Config file for settings
+        public bool showOutput;
 
         #region Constructors
-        public HitClass() // Constructer Without Parameters used by XmlSerializer
-        {
 
-        }
-
-        public HitClass(string cUrl, int cTime, string cTimeType, bool cOutput) // Constructer With Input
+        public HitClass(string cUrl,   // Constructer
+                        int cTime,
+                        string cTimeType,
+                        bool cOutput) 
         {
             url = cUrl;
             time = cTime;
             timeType = cTimeType;
             showOutput = cOutput;
         }
+        public HitClass() // Constructer Without Parameters used by XmlSerializer
+        { }
         #endregion
 
         #region Hit Method
-        public static string Hit(string url, int time, bool showOutput)
+        public static string Hit(string url,
+                                 int time,
+                                 bool showOutput)
         {
             try
             {
-                WebClient client = new WebClient();
+                var client = new WebClient();
                 client.Headers.Add("User-Agent", "C# program URL-Hitter");
                 string webResult = client.DownloadString(url); //Load the URL and save the resust in a string
 
 
-                string now = "Last Hit: " + Convert.ToString(DateTime.Now); //  the next couple of lines is for building a nice output with stringbuilder and datetime
-                StringBuilder sb = new StringBuilder(now, 500);
+                string now = $"Last Hit: {Convert.ToString(DateTime.Now)}"; //  the next couple of lines is for building a nice output with stringbuilder and datetime
+                var sb = new StringBuilder(now, 500);
 
                 string newLine = "\n\n";
-
-
-                DateTime currentTime = DateTime.Now;  //current datetime
-                DateTime nextHit = currentTime.AddMilliseconds(time); //current datetime + hours till next hit
-                
 
                 sb.Append(newLine);
                 if (showOutput == true)//Show output from webside or not
@@ -60,22 +57,24 @@ namespace URL_Hitter
                     sb.Append("OK\nOutput hidden");
                 }
                 sb.Append(newLine);
-                sb.Append("Next Hit:" + nextHit);
-
+                sb.Append($"Next Hit: {Convert.ToString(DateTime.Now.AddMilliseconds(time))}"); //current datetime + hours till next hit
 
                 var done = sb.ToString();
 
                 return done;
             }
-            catch (Exception)
+            catch (Exception )
             {
-                throw;
+
+                return "\nError: Wrong or Unreachable URL";
             }
+
         }
         #endregion
 
         #region Save and Read to xml file
-        public static void SaveConfig<T>(string filePath, T objectToWrite)
+        public static void SaveConfig<T>(string filePath,
+                                         T objectToWrite)
         {
             TextWriter writer = null;
             try
