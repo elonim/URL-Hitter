@@ -9,7 +9,7 @@
       Title="Hitter">
 
     <Grid>
-        <RichTextBox x:Name="Output" Background="#FF303030" BorderBrush="{x:Null}" Foreground="White">
+        <RichTextBox x:Name="Output" BorderBrush="{x:Null}">
             <FlowDocument>
                 <Paragraph>
                     <Run Text=""/>

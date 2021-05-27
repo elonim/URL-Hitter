@@ -18,7 +18,6 @@ namespace URL_Hitter2
         public string timeType;
         public bool showOutput;
 
-        #region Constructors
 
         public HitClass(string cUrl,   // Constructer
                         int cTime,
@@ -30,9 +29,7 @@ namespace URL_Hitter2
             timeType = cTimeType;
             showOutput = cOutput;
         }
-        public HitClass() // Constructer Without Parameters used by XmlSerializer
-        { }
-        #endregion
+        public HitClass() { }// Constructer Without Parameters used by XmlSerializer
 
         #region Hit Method
         public static string Hit(string url, int time, bool showOutput)
@@ -56,7 +53,7 @@ namespace URL_Hitter2
                 }
                 else
                 {
-                    sb.Append("OK\nOutput hidden");
+                    sb.Append("Hit Successful \nOutput hidden");
                 }
                 sb.Append(newLine);
                 sb.Append($"Next Hit: {Convert.ToString(DateTime.Now.AddMilliseconds(time))}"); //current datetime + hours till next hit

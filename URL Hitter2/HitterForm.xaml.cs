@@ -30,40 +30,38 @@ namespace URL_Hitter2
             if (File.Exists(HitClass.Filepath))
             {
                 var a = HitClass.ReadConfig<HitClass>(HitClass.Filepath);
-                Task.Run(() => VisAnsatTimer(a));
+                Task.Run(() => HitTask(a));
             }
 
             else
             {
-                Output.Selection.Text = "No Configuration found! \n\n" +
+                Output.Selection.Text = "\nNo Configuration found! \n" +
                                         "\tOpen Settings to Configure this application.";
             }
         }
 
-        #region VisEnAnsatTask
+
         public delegate void Del(string a);
 
-        public void VisAnsatTimer(HitClass a)
+        public void HitTask(HitClass a)
         {
             var hitTime = HitClass.TimeInterval(a.time, a.timeType);
             while (true)
             {
                 var result = HitClass.Hit(a.url, hitTime, a.showOutput);//hit and show the output in the textbox
 
-                OpdaterView(result);
+                UpdateView(result);
                 Thread.Sleep(hitTime);
             }
         }
-        void OpdaterView(string ansat)
+        void UpdateView(string ansat)
         {
-            Del ddg = new(VisView);
+            Del ddg = new(ShowView);
             Dispatcher.Invoke(ddg, new object[] { ansat });
         }
-        void VisView(string a)
+        void ShowView(string a)
         {
             Output.Selection.Text = a;
         }
-        #endregion
-
     }
 }
